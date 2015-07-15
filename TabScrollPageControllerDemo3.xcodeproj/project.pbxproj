@@ -15,6 +15,10 @@
 		9E67AF881B560D7800632403 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E67AF871B560D7800632403 /* Images.xcassets */; };
 		9E67AF8B1B560D7800632403 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E67AF891B560D7800632403 /* LaunchScreen.xib */; };
 		9E67AF971B560D7800632403 /* TabScrollPageControllerDemo3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AF961B560D7800632403 /* TabScrollPageControllerDemo3Tests.m */; };
+		9E67AFA91B560D8E00632403 /* PageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AFA21B560D8E00632403 /* PageScrollView.m */; };
+		9E67AFAA1B560D8E00632403 /* TabScrollPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AFA41B560D8E00632403 /* TabScrollPageController.m */; };
+		9E67AFAB1B560D8E00632403 /* TabScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AFA61B560D8E00632403 /* TabScrollView.m */; };
+		9E67AFAC1B560D8E00632403 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AFA81B560D8E00632403 /* UIView+Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,14 @@
 		9E67AF901B560D7800632403 /* TabScrollPageControllerDemo3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TabScrollPageControllerDemo3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E67AF951B560D7800632403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E67AF961B560D7800632403 /* TabScrollPageControllerDemo3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabScrollPageControllerDemo3Tests.m; sourceTree = "<group>"; };
+		9E67AFA11B560D8E00632403 /* PageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageScrollView.h; sourceTree = "<group>"; };
+		9E67AFA21B560D8E00632403 /* PageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageScrollView.m; sourceTree = "<group>"; };
+		9E67AFA31B560D8E00632403 /* TabScrollPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabScrollPageController.h; sourceTree = "<group>"; };
+		9E67AFA41B560D8E00632403 /* TabScrollPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabScrollPageController.m; sourceTree = "<group>"; };
+		9E67AFA51B560D8E00632403 /* TabScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabScrollView.h; sourceTree = "<group>"; };
+		9E67AFA61B560D8E00632403 /* TabScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabScrollView.m; sourceTree = "<group>"; };
+		9E67AFA71B560D8E00632403 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
+		9E67AFA81B560D8E00632403 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +95,7 @@
 		9E67AF761B560D7800632403 /* TabScrollPageControllerDemo3 */ = {
 			isa = PBXGroup;
 			children = (
+				9E67AFA01B560D8E00632403 /* TabScrollPageController */,
 				9E67AF7B1B560D7800632403 /* AppDelegate.h */,
 				9E67AF7C1B560D7800632403 /* AppDelegate.m */,
 				9E67AF811B560D7800632403 /* ViewController.h */,
@@ -120,6 +133,21 @@
 				9E67AF951B560D7800632403 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9E67AFA01B560D8E00632403 /* TabScrollPageController */ = {
+			isa = PBXGroup;
+			children = (
+				9E67AFA11B560D8E00632403 /* PageScrollView.h */,
+				9E67AFA21B560D8E00632403 /* PageScrollView.m */,
+				9E67AFA31B560D8E00632403 /* TabScrollPageController.h */,
+				9E67AFA41B560D8E00632403 /* TabScrollPageController.m */,
+				9E67AFA51B560D8E00632403 /* TabScrollView.h */,
+				9E67AFA61B560D8E00632403 /* TabScrollView.m */,
+				9E67AFA71B560D8E00632403 /* UIView+Utils.h */,
+				9E67AFA81B560D8E00632403 /* UIView+Utils.m */,
+			);
+			path = TabScrollPageController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +254,10 @@
 				9E67AF7A1B560D7800632403 /* main.m in Sources */,
 				9E67AF831B560D7800632403 /* ViewController.m in Sources */,
 				9E67AF801B560D7800632403 /* TabScrollPageControllerDemo3.xcdatamodeld in Sources */,
+				9E67AFA91B560D8E00632403 /* PageScrollView.m in Sources */,
+				9E67AFAB1B560D8E00632403 /* TabScrollView.m in Sources */,
+				9E67AFAC1B560D8E00632403 /* UIView+Utils.m in Sources */,
+				9E67AFAA1B560D8E00632403 /* TabScrollPageController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
