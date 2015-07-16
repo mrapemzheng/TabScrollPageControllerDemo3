@@ -44,6 +44,22 @@
     [self saveContext];
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    NSString *sourceApplicationStr = sourceApplication;
+    id annotationID = annotation;
+    NSString *urlStr = [url absoluteString];
+    
+    urlStr = [urlStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:[NSString stringWithFormat:@"%@,%@,%@", sourceApplicationStr, annotationID, urlStr] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
+    [alertView show];
+    
+    return  YES;
+}
+
+
+
 #pragma mark - Core Data stack
 
 @synthesize managedObjectContext = _managedObjectContext;
