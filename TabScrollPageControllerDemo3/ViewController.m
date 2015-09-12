@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "UIView+Utils.h"
 #import "TabScrollPageController.h"
+#import "WebViewViewController.h"
 
 @interface ViewController ()
 {
@@ -27,6 +28,7 @@
 {
     
     [super viewWillAppear:animated];
+    
     NSArray *tabArray = [NSArray arrayWithObjects:@"标签1", @"标签2", @"标签3", @"标签4", @"标签5", @"标签6", nil];
     NSMutableArray *pageArray = [NSMutableArray array];
     for (NSInteger i = 0; i < 6; i ++) {
@@ -35,11 +37,15 @@
             v.backgroundColor = [UIColor redColor];
             [pageArray addObject:v];
         } else if(i == 1) {
-            v.backgroundColor = [ UIColor grayColor];
-            UIViewController *vc = [UIViewController new
-                                    ];
-            vc.view.backgroundColor = [UIColor grayColor];
-            [pageArray addObject:vc];
+//            v.backgroundColor = [ UIColor grayColor];
+//            UIViewController *vc = [UIViewController new
+//                                    ];
+//            vc.view.backgroundColor = [UIColor grayColor];
+            
+            WebViewViewController *webViewViewController = [[WebViewViewController alloc] initWithNibName:@"WebViewViewController" bundle:[NSBundle mainBundle]];
+            
+            
+            [pageArray addObject:webViewViewController];
         } else if(i == 2) {
             v.backgroundColor = [ UIColor blueColor];
             [pageArray addObject:v];
