@@ -41,6 +41,7 @@
 - (void)addToSuperView
 {
     [self.tabFatherView addSubview:self.tabScrollView];
+    [self.tabFatherView addSubview:self];
     [self.pageFatherView addSubview:self.pageScrollView];
 }
 
