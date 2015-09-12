@@ -2,7 +2,7 @@
 
 滚动标签页视图控制器
 
-#具体使用:
+具体使用:
  NSArray *tabArray = [NSArray arrayWithObjects:@"标签1", @"标签2", @"标签3", @"标签4", @"标签5", @"标签6", nil];
     NSMutableArray *pageArray = [NSMutableArray array];
     for (NSInteger i = 0; i < 6; i ++) {
