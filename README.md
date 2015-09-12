@@ -3,6 +3,7 @@
 滚动标签页视图控制器
 
 具体使用:
+//初始化数据
  NSArray *tabArray = [NSArray arrayWithObjects:@"标签1", @"标签2", @"标签3", @"标签4", @"标签5", @"标签6", nil];
     NSMutableArray *pageArray = [NSMutableArray array];
     for (NSInteger i = 0; i < 6; i ++) {
@@ -32,8 +33,7 @@
     }
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    //选项滚动页视图
-    tabScrollPageController = [[TabScrollPageController alloc] initWithTabFatherView:self.view tabScrollViewFrame:CGRectMake(0, 64, self.view.width, 40) pageFatherView:self.view pageScrollViewFrame:CGRectMake(0, 64+40, self.view.width, self.view.height - (64+40)) tabArray:tabArray pageArray:pageArray numberOfTabAtOnePage:5];
+    //选项滚动页视图tabScrollPageController = [[TabScrollPageController alloc] initWithTabFatherView:self.view tabScrollViewFrame:CGRectMake(0, 64, self.view.width, 40) pageFatherView:self.view pageScrollViewFrame:CGRectMake(0, 64+40, self.view.width, self.view.height - (64+40)) tabArray:tabArray pageArray:pageArray numberOfTabAtOnePage:5];
     [tabScrollPageController addToSuperView];
     tabScrollPageController.tabScrollView.backgroundColor = [UIColor whiteColor];
     tabScrollPageController.tabScrollView.foregroundColor = [UIColor blackColor];
