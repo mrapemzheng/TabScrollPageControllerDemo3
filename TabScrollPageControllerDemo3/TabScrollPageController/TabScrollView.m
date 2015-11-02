@@ -32,7 +32,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @interface TabScrollView ()
 
 @property (nonatomic, strong) UIScrollView *innerScrollView;            //滚动视图
-@property (nonatomic, strong) NSMutableArray *tabButtonArray;           //按钮数组
 @property (nonatomic, strong) UIView *underLineV;                       //下划线视图
 @property (nonatomic, strong) UIButton *changePageButton;               //翻页按钮
 @end

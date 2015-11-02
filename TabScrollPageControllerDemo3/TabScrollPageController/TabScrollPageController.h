@@ -10,6 +10,15 @@
 #import "TabScrollView.h"
 #import "PageScrollView.h"
 #import "UIView+Utils.h"
+
+@class TabScrollPageController;
+@protocol TabScrollPageControllerDelegate <NSObject>
+
+//选中一个
+@optional
+- (void)tabScrollPageController:(TabScrollPageController *)tabScrollPageController didSelectAtIndex:(NSInteger)index;
+@end
+
 /**
  *  标签滚动页控制器
  *
@@ -20,6 +29,7 @@
 
 @property (nonatomic, strong) TabScrollView *tabScrollView;         //标签滚动视图
 @property (nonatomic, strong) PageScrollView *pageScrollView;       //页滚动视图
+@property (nonatomic, strong) id<TabScrollPageControllerDelegate> delegate;
 
 /**
  *  初始化

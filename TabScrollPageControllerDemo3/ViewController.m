@@ -11,7 +11,7 @@
 #import "TabScrollPageController.h"
 #import "WebViewViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<TabScrollPageControllerDelegate>
 {
 //    TabScrollPageController *tabScrollPageController;
 }
@@ -59,6 +59,7 @@
     tabScrollPageController.tabScrollView.backgroundColor = [UIColor whiteColor];
     tabScrollPageController.tabScrollView.foregroundColor = [UIColor blackColor];
     tabScrollPageController.tabScrollView.highlightColor = [UIColor redColor];
+    tabScrollPageController.delegate = self;
     
 }
 
@@ -73,6 +74,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - TabScrollPageControllerDelegate
+
+- (void)tabScrollPageController:(TabScrollPageController *)tabScrollPageController didSelectAtIndex:(NSInteger)index
+{
+    UIButton *b = [tabScrollPageController.tabScrollView.tabButtonArray objectAtIndex:index];
+    
 }
 
 @end

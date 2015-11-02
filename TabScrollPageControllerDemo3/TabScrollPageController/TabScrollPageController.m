@@ -82,6 +82,10 @@
 - (void)tabScrollView:(TabScrollView *)tabScrollView didSelectTabAtIndex:(NSInteger)index
 {
     [self.pageScrollView scrollToIndex:index];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tabScrollPageController:didSelectAtIndex:)]) {
+        [self.delegate tabScrollPageController:self didSelectAtIndex:index];
+    }
 }
 
 #pragma mark - PageScrollViewDelegate
@@ -106,7 +110,12 @@
 
 - (void)pageScrollView:(PageScrollView *)pageScrollView didScrollToIndex:(NSInteger)index
 {
+    //并没有让tabScrollView发出委托
     [self.tabScrollView selectAtIndex:index animated:YES];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tabScrollPageController:didSelectAtIndex:)]) {
+        [self.delegate tabScrollPageController:self didSelectAtIndex:index];
+    }
 }
 
 #pragma mark - private methods

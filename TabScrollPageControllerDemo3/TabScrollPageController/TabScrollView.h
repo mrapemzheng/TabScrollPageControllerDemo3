@@ -29,6 +29,7 @@
 
 @interface TabScrollView : UIScrollView
 
+
 @property (nonatomic, strong) UIColor *foregroundColor;                         //前景色
 @property (nonatomic, strong) UIColor *highlightColor;                          //高亮色
 @property (nonatomic, strong) UIFont *font;                                     //字体
@@ -38,6 +39,8 @@
 @property (nonatomic, readonly, assign) NSInteger numberOfTabAtOnePage;         //一页多少个选项卡
 @property (nonatomic, readonly, strong) NSArray *arrayForTabDataSource;         //数据源数组
 @property (nonatomic, assign) NSInteger currentSelectIndex;                     //当前被选中的下标 默认:0
+
+@property (nonatomic, strong) NSMutableArray *tabButtonArray;           //按钮数组
 
 /**
  *  选中某个下标
