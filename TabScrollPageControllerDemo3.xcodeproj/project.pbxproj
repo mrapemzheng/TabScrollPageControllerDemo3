@@ -12,16 +12,16 @@
 		9E67AF7A1B560D7800632403 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AF791B560D7800632403 /* main.m */; };
 		9E67AF7D1B560D7800632403 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AF7C1B560D7800632403 /* AppDelegate.m */; };
 		9E67AF801B560D7800632403 /* TabScrollPageControllerDemo3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AF7E1B560D7800632403 /* TabScrollPageControllerDemo3.xcdatamodeld */; };
-		9E67AF831B560D7800632403 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AF821B560D7800632403 /* ViewController.m */; };
 		9E67AF861B560D7800632403 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E67AF841B560D7800632403 /* Main.storyboard */; };
 		9E67AF881B560D7800632403 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E67AF871B560D7800632403 /* Images.xcassets */; };
 		9E67AF8B1B560D7800632403 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E67AF891B560D7800632403 /* LaunchScreen.xib */; };
 		9E67AF971B560D7800632403 /* TabScrollPageControllerDemo3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AF961B560D7800632403 /* TabScrollPageControllerDemo3Tests.m */; };
-		9E67AFA91B560D8E00632403 /* PageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AFA21B560D8E00632403 /* PageScrollView.m */; };
-		9E67AFAA1B560D8E00632403 /* TabScrollPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AFA41B560D8E00632403 /* TabScrollPageController.m */; };
-		9E67AFAB1B560D8E00632403 /* TabScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AFA61B560D8E00632403 /* TabScrollView.m */; };
-		9E67AFAC1B560D8E00632403 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67AFA81B560D8E00632403 /* UIView+Utils.m */; };
 		9E81AE8B1B5784B400E5DC01 /* 评价详情_@1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E81AE8A1B5784B400E5DC01 /* 评价详情_@1.png */; };
+		F752079E1BEC6D2D00A71F13 /* PageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F75207971BEC6D2D00A71F13 /* PageScrollView.m */; };
+		F752079F1BEC6D2D00A71F13 /* TabScrollPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75207991BEC6D2D00A71F13 /* TabScrollPageController.m */; };
+		F75207A01BEC6D2D00A71F13 /* TabScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F752079B1BEC6D2D00A71F13 /* TabScrollView.m */; };
+		F75207A11BEC6D2D00A71F13 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F752079D1BEC6D2D00A71F13 /* UIView+Utils.m */; };
+		F75207A41BEC6D3800A71F13 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75207A31BEC6D3800A71F13 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,23 +44,23 @@
 		9E67AF7B1B560D7800632403 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9E67AF7C1B560D7800632403 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9E67AF7F1B560D7800632403 /* TabScrollPageControllerDemo3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TabScrollPageControllerDemo3.xcdatamodel; sourceTree = "<group>"; };
-		9E67AF811B560D7800632403 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9E67AF821B560D7800632403 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9E67AF851B560D7800632403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E67AF871B560D7800632403 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9E67AF8A1B560D7800632403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9E67AF901B560D7800632403 /* TabScrollPageControllerDemo3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TabScrollPageControllerDemo3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E67AF951B560D7800632403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E67AF961B560D7800632403 /* TabScrollPageControllerDemo3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabScrollPageControllerDemo3Tests.m; sourceTree = "<group>"; };
-		9E67AFA11B560D8E00632403 /* PageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageScrollView.h; sourceTree = "<group>"; };
-		9E67AFA21B560D8E00632403 /* PageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageScrollView.m; sourceTree = "<group>"; };
-		9E67AFA31B560D8E00632403 /* TabScrollPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabScrollPageController.h; sourceTree = "<group>"; };
-		9E67AFA41B560D8E00632403 /* TabScrollPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabScrollPageController.m; sourceTree = "<group>"; };
-		9E67AFA51B560D8E00632403 /* TabScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabScrollView.h; sourceTree = "<group>"; };
-		9E67AFA61B560D8E00632403 /* TabScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabScrollView.m; sourceTree = "<group>"; };
-		9E67AFA71B560D8E00632403 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
-		9E67AFA81B560D8E00632403 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
 		9E81AE8A1B5784B400E5DC01 /* 评价详情_@1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "评价详情_@1.png"; sourceTree = "<group>"; };
+		F75207961BEC6D2D00A71F13 /* PageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageScrollView.h; sourceTree = "<group>"; };
+		F75207971BEC6D2D00A71F13 /* PageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageScrollView.m; sourceTree = "<group>"; };
+		F75207981BEC6D2D00A71F13 /* TabScrollPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabScrollPageController.h; sourceTree = "<group>"; };
+		F75207991BEC6D2D00A71F13 /* TabScrollPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabScrollPageController.m; sourceTree = "<group>"; };
+		F752079A1BEC6D2D00A71F13 /* TabScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabScrollView.h; sourceTree = "<group>"; };
+		F752079B1BEC6D2D00A71F13 /* TabScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabScrollView.m; sourceTree = "<group>"; };
+		F752079C1BEC6D2D00A71F13 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
+		F752079D1BEC6D2D00A71F13 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
+		F75207A21BEC6D3800A71F13 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F75207A31BEC6D3800A71F13 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +105,8 @@
 				9E67AFA01B560D8E00632403 /* TabScrollPageController */,
 				9E67AF7B1B560D7800632403 /* AppDelegate.h */,
 				9E67AF7C1B560D7800632403 /* AppDelegate.m */,
-				9E67AF811B560D7800632403 /* ViewController.h */,
-				9E67AF821B560D7800632403 /* ViewController.m */,
+				F75207A21BEC6D3800A71F13 /* ViewController.h */,
+				F75207A31BEC6D3800A71F13 /* ViewController.m */,
 				9E67AF841B560D7800632403 /* Main.storyboard */,
 				9E67AF871B560D7800632403 /* Images.xcassets */,
 				9E67AF891B560D7800632403 /* LaunchScreen.xib */,
@@ -149,14 +149,14 @@
 		9E67AFA01B560D8E00632403 /* TabScrollPageController */ = {
 			isa = PBXGroup;
 			children = (
-				9E67AFA11B560D8E00632403 /* PageScrollView.h */,
-				9E67AFA21B560D8E00632403 /* PageScrollView.m */,
-				9E67AFA31B560D8E00632403 /* TabScrollPageController.h */,
-				9E67AFA41B560D8E00632403 /* TabScrollPageController.m */,
-				9E67AFA51B560D8E00632403 /* TabScrollView.h */,
-				9E67AFA61B560D8E00632403 /* TabScrollView.m */,
-				9E67AFA71B560D8E00632403 /* UIView+Utils.h */,
-				9E67AFA81B560D8E00632403 /* UIView+Utils.m */,
+				F75207961BEC6D2D00A71F13 /* PageScrollView.h */,
+				F75207971BEC6D2D00A71F13 /* PageScrollView.m */,
+				F75207981BEC6D2D00A71F13 /* TabScrollPageController.h */,
+				F75207991BEC6D2D00A71F13 /* TabScrollPageController.m */,
+				F752079A1BEC6D2D00A71F13 /* TabScrollView.h */,
+				F752079B1BEC6D2D00A71F13 /* TabScrollView.m */,
+				F752079C1BEC6D2D00A71F13 /* UIView+Utils.h */,
+				F752079D1BEC6D2D00A71F13 /* UIView+Utils.m */,
 			);
 			path = TabScrollPageController;
 			sourceTree = "<group>";
@@ -263,15 +263,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75207A41BEC6D3800A71F13 /* ViewController.m in Sources */,
 				9E67AF7D1B560D7800632403 /* AppDelegate.m in Sources */,
 				9E67AF7A1B560D7800632403 /* main.m in Sources */,
-				9E67AF831B560D7800632403 /* ViewController.m in Sources */,
 				9E67AF801B560D7800632403 /* TabScrollPageControllerDemo3.xcdatamodeld in Sources */,
-				9E67AFA91B560D8E00632403 /* PageScrollView.m in Sources */,
-				9E67AFAB1B560D8E00632403 /* TabScrollView.m in Sources */,
 				9E6789331BA3D58300B8CD3B /* WebViewViewController.m in Sources */,
-				9E67AFAC1B560D8E00632403 /* UIView+Utils.m in Sources */,
-				9E67AFAA1B560D8E00632403 /* TabScrollPageController.m in Sources */,
+				F752079E1BEC6D2D00A71F13 /* PageScrollView.m in Sources */,
+				F75207A01BEC6D2D00A71F13 /* TabScrollView.m in Sources */,
+				F75207A11BEC6D2D00A71F13 /* UIView+Utils.m in Sources */,
+				F752079F1BEC6D2D00A71F13 /* TabScrollPageController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

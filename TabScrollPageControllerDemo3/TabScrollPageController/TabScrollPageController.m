@@ -23,6 +23,7 @@
 
 @implementation TabScrollPageController
 
+
 - (instancetype)initWithTabFatherView:(UIView *)tabFatherView tabScrollViewFrame:(CGRect)tabScrollViewFrame pageFatherView:(UIView *)pageFatherView pageScrollViewFrame:(CGRect)pageScrollViewFrame tabArray:(NSArray *)tabArray pageArray:(NSArray *)pageArray numberOfTabAtOnePage:(NSInteger)numberOfTabAtOnePage;
 {
     if(self = [super init]) {
@@ -61,6 +62,7 @@
 {
     _tabScrollView = [[TabScrollView alloc] initWithFrame:self.tabScrollViewFrame];
     _tabScrollView.tabScrollViewDelegate = self;
+    _tabScrollView.animated = YES;
     
     _pageScrollView = [[PageScrollView alloc] initWithFrame:self.pageScrollViewFrame withDelegate:self];
 }
@@ -81,7 +83,9 @@
 //选项被选中
 - (void)tabScrollView:(TabScrollView *)tabScrollView didSelectTabAtIndex:(NSInteger)index
 {
-    [self.pageScrollView scrollToIndex:index];
+    if(index != self.pageScrollView.currentIndex) {
+        [self.pageScrollView scrollToIndex:index];
+    }
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(tabScrollPageController:didSelectAtIndex:)]) {
         [self.delegate tabScrollPageController:self didSelectAtIndex:index];
@@ -105,13 +109,24 @@
 //正在滚动
 - (void)pageScrollViewDidScroll:(PageScrollView *)pageScrollView
 {
-    
+    if (self.tabScrollView.animating == NO) {
+        CGFloat widthPerPage = pageScrollView.width;
+        CGFloat tabMargin = self.tabScrollView.tabMagin;
+        CGFloat tabDummyWidth = (widthPerPage - tabMargin) / self.numberOfTabAtOnePage;
+        
+        CGFloat percent = tabDummyWidth / widthPerPage;
+        
+        CGFloat currentOffset = (pageScrollView.contentOffset.x * percent) + tabMargin;
+        self.tabScrollView.underLineV.left = currentOffset;
+    }
 }
 
 - (void)pageScrollView:(PageScrollView *)pageScrollView didScrollToIndex:(NSInteger)index
 {
     //并没有让tabScrollView发出委托
-    [self.tabScrollView selectAtIndex:index animated:YES];
+    if(index != self.tabScrollView.currentSelectIndex) {
+        [self.tabScrollView selectAtIndex:index animated:YES];
+    }
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(tabScrollPageController:didSelectAtIndex:)]) {
         [self.delegate tabScrollPageController:self didSelectAtIndex:index];

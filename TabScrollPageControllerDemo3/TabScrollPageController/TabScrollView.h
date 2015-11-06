@@ -29,11 +29,15 @@
 
 @interface TabScrollView : UIScrollView
 
+@property (nonatomic, strong) UIScrollView *innerScrollView;            //滚动视图
+@property (nonatomic, strong) UIView *underLineV;                       //下划线视图
 
 @property (nonatomic, strong) UIColor *foregroundColor;                         //前景色
 @property (nonatomic, strong) UIColor *highlightColor;                          //高亮色
 @property (nonatomic, strong) UIFont *font;                                     //字体
 @property (nonatomic, assign) CGFloat tabMagin;                                 //边距
+@property (nonatomic, assign) BOOL animated;                                    //是否允许动画 默认YES
+@property (nonatomic, assign) BOOL animating;                                   //是否正在执行动画
 @property (nonatomic, assign) id<TabScrollViewDelegate> tabScrollViewDelegate;  //委托
 
 @property (nonatomic, readonly, assign) NSInteger numberOfTabAtOnePage;         //一页多少个选项卡

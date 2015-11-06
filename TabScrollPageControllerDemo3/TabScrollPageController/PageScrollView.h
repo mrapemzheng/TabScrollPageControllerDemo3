@@ -38,6 +38,7 @@
 
 @property (nonatomic, assign, readonly) NSInteger currentIndex;       //当前下标
 @property (nonatomic, assign) id<PageScrollViewDelegate> pageScrollViewdelegate;    //委托
+@property (nonatomic, assign) BOOL warmAnimated;      //和谐动画 默认NO
 
 /**
  *  初始化

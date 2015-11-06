@@ -24,9 +24,9 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     //设置数据
-    NSArray *tabArray = [NSArray arrayWithObjects:@"标签1", @"标签2", @"标签3", @"标签4", @"标签5", @"标签6", nil];
+    NSArray *tabArray = [NSArray arrayWithObjects:@"标签1", @"标签2", @"标签3", @"标签4", @"标签5", @"标签6", @"标签7", nil];
     NSMutableArray *pageArray = [NSMutableArray array];
-    for (NSInteger i = 0; i < 6; i ++) {
+    for (NSInteger i = 0; i < tabArray.count; i ++) {
         UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         if (i == 0) {
             v.backgroundColor = [UIColor redColor];
@@ -48,6 +48,9 @@
             [pageArray addObject:v];
         }else if(i == 5) {
             v.backgroundColor = [ UIColor yellowColor];
+            [pageArray addObject:v];
+        } else if(i == 6) {
+            v.backgroundColor = [ UIColor grayColor];
             [pageArray addObject:v];
         }
     }

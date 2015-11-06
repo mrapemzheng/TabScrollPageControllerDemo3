@@ -31,8 +31,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @interface TabScrollView ()
 
-@property (nonatomic, strong) UIScrollView *innerScrollView;            //滚动视图
-@property (nonatomic, strong) UIView *underLineV;                       //下划线视图
 @property (nonatomic, strong) UIButton *changePageButton;               //翻页按钮
 @end
 
@@ -188,17 +186,22 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     __weak typeof(self) ws = self;
     if (animated) {
-        [UIView animateWithDuration:0.5 animations:^{
-            
-            
+        [UIView animateWithDuration:0.3 animations:^{
+            self.animating = YES;
             ws.underLineV.left = currentBtn.left;
             [ws.innerScrollView setContentOffset:CGPointMake(currentPageIndex * ws.innerScrollView.width, ws.innerScrollView.top)];
         } completion:^(BOOL finished) {
-            
+            self.animating = NO;
         }];
     } else {
+        self.animating = NO;
         ws.underLineV.left = currentBtn.left;
         [ws.innerScrollView setContentOffset:CGPointMake(currentPageIndex * ws.innerScrollView.width, ws.innerScrollView.top)];
+    }
+    
+    //委托
+    if (self.tabScrollViewDelegate && [self.tabScrollViewDelegate respondsToSelector:@selector(tabScrollView:didSelectTabAtIndex:)]) {
+        [self.tabScrollViewDelegate tabScrollView:self didSelectTabAtIndex: index];
     }
 }
 
@@ -212,7 +215,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [self addSubview:self.innerScrollView];
     
     CGFloat height = self.innerScrollView.height;
+    
     CGFloat tabMargin = _tabMagin > 0 ? _tabMagin : D_tabMargin;
+    _tabMagin = tabMargin;
+    
     NSInteger numberOfTabAtOnePage = self.numberOfTabAtOnePage;
     NSArray *arrayForTabDataSource = self.arrayForTabDataSource;
     CGFloat width = (self.innerScrollView.width - ((numberOfTabAtOnePage + 1) *tabMargin))/ numberOfTabAtOnePage;
@@ -266,26 +272,39 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     //初始化基本参数
     self.backgroundColor = [UIColor whiteColor];
     self.currentSelectIndex = 0;
+    
+    _animated = YES;
 }
 
 - (void)tabButtonDidClick:(id)sender
 {
     NSInteger index = [self.tabButtonArray indexOfObject:sender];
-    self.currentSelectIndex = index;
-    for (UIButton *b in self.tabButtonArray) {
-        [b setTitleColor:self.foregroundColor forState:UIControlStateNormal];
-    }
-    [((UIButton *)sender) setTitleColor:self.highlightColor forState:UIControlStateNormal];
-    __weak typeof(self) weakSelf = self;
-    [UIView animateWithDuration:0.2 animations:^{
-        weakSelf.underLineV.left = ((UIButton *)sender).left;
-    } completion:^(BOOL finished) {
-        
-    }];
+//    self.currentSelectIndex = index;
+//    for (UIButton *b in self.tabButtonArray) {
+//        [b setTitleColor:self.foregroundColor forState:UIControlStateNormal];
+//    }
+//    [((UIButton *)sender) setTitleColor:self.highlightColor forState:UIControlStateNormal];
+//    __weak typeof(self) weakSelf = self;
+//    
+//    //是否动画
+//    if (self.animated == YES) {
+//        [UIView animateWithDuration:0.2 animations:^{
+//
+//            weakSelf.underLineV.left = ((UIButton *)sender).left;
+//        } completion:^(BOOL finished) {
+//
+//        }];
+//    } else {
+//         weakSelf.underLineV.left = ((UIButton *)sender).left;
+//    }
+//    
+//    
+//    if (self.tabScrollViewDelegate && [self.tabScrollViewDelegate respondsToSelector:@selector(tabScrollView:didSelectTabAtIndex:)]) {
+//        [self.tabScrollViewDelegate tabScrollView:self didSelectTabAtIndex: index];
+//    }
     
-    if (self.tabScrollViewDelegate && [self.tabScrollViewDelegate respondsToSelector:@selector(tabScrollView:didSelectTabAtIndex:)]) {
-        [self.tabScrollViewDelegate tabScrollView:self didSelectTabAtIndex: index];
-    }
+    
+    [self selectAtIndex:index animated:self.animated];
 }
 
 - (void)pagingButtonDidClick:(id)sender
