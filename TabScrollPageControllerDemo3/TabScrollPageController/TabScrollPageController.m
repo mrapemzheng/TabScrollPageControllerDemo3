@@ -65,6 +65,7 @@
     _tabScrollView.animated = YES;
     
     _pageScrollView = [[PageScrollView alloc] initWithFrame:self.pageScrollViewFrame withDelegate:self];
+    _pageScrollView.warmAnimated = YES;
 }
 
 #pragma mark - TabScrollViewDelegate

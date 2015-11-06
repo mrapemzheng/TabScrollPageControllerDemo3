@@ -104,12 +104,16 @@
 
 - (void)scrollToIndex:(NSInteger)index;
 {
-    CGFloat littleNum = 2;
-    if (index > _currentIndex) {
+    if (self.warmAnimated == YES) {
         
-        [self setContentOffset:CGPointMake((index - 1) * self.width + littleNum, 0) animated:NO];
-    } else if(index < _currentIndex){
-        [self setContentOffset:CGPointMake((index + 1) * self.width + littleNum, 0) animated:NO];
+        CGFloat littleNum = 2;
+        if (index > _currentIndex) {
+            
+            [self setContentOffset:CGPointMake((index - 1) * self.width + littleNum, 0) animated:NO];
+        } else if(index < _currentIndex){
+            [self setContentOffset:CGPointMake((index + 1) * self.width + littleNum, 0) animated:NO];
+        }
+        
     }
     
     _currentIndex = index;
