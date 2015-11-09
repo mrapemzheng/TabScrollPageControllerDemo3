@@ -146,9 +146,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
     _highlightColor = highlightColor;
     [self.changePageButton setTitleColor:_highlightColor forState:UIControlStateNormal];
-    if (self.currentSelectIndex != -1) {
+    
+    //设置选中之后的高亮效果
+    if (self.currentSelectIndex != -1 && self.tabButtonArray.count != 0) {
         UIButton *b = [self.tabButtonArray objectAtIndex:self.currentSelectIndex];
         [b setTitleColor:_highlightColor forState:UIControlStateNormal];
+        [b setTitleColor:_highlightColor forState:UIControlStateHighlighted];
     }
     self.underLineV.backgroundColor = _highlightColor;
 }
@@ -267,6 +270,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     self.innerScrollView.contentSize = CGSizeMake(multiple * self.width, height);
     self.innerScrollView.pagingEnabled = YES;
     self.innerScrollView.showsHorizontalScrollIndicator = NO;
+    
+    //设置前景色
+    [self setForegroundColor:self.foregroundColor];
+    //设置高亮色
+    [self setHighlightColor:self.highlightColor];
 }
 
 //初始化配置
