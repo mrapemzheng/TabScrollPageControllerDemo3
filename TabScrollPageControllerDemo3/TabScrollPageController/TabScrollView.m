@@ -210,6 +210,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 //生成界面
 - (void)generateUI
 {
+    self.tabButtonArray = [NSMutableArray array];
+    [self removeAllSubviews];
+    
     CGRect rect = CGRectMake(0, 0, self.width, self.height);
     self.innerScrollView = [[UIScrollView alloc] initWithFrame:rect];
     [self addSubview:self.innerScrollView];
@@ -279,30 +282,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 - (void)tabButtonDidClick:(id)sender
 {
     NSInteger index = [self.tabButtonArray indexOfObject:sender];
-//    self.currentSelectIndex = index;
-//    for (UIButton *b in self.tabButtonArray) {
-//        [b setTitleColor:self.foregroundColor forState:UIControlStateNormal];
-//    }
-//    [((UIButton *)sender) setTitleColor:self.highlightColor forState:UIControlStateNormal];
-//    __weak typeof(self) weakSelf = self;
-//    
-//    //是否动画
-//    if (self.animated == YES) {
-//        [UIView animateWithDuration:0.2 animations:^{
-//
-//            weakSelf.underLineV.left = ((UIButton *)sender).left;
-//        } completion:^(BOOL finished) {
-//
-//        }];
-//    } else {
-//         weakSelf.underLineV.left = ((UIButton *)sender).left;
-//    }
-//    
-//    
-//    if (self.tabScrollViewDelegate && [self.tabScrollViewDelegate respondsToSelector:@selector(tabScrollView:didSelectTabAtIndex:)]) {
-//        [self.tabScrollViewDelegate tabScrollView:self didSelectTabAtIndex: index];
-//    }
-    
     
     [self selectAtIndex:index animated:self.animated];
 }

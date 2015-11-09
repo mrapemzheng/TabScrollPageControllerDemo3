@@ -59,6 +59,7 @@
     //选项滚动页视图
     TabScrollPageController *tabScrollPageController = [[TabScrollPageController alloc] initWithTabFatherView:self.view tabScrollViewFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 40) pageFatherView:self.view pageScrollViewFrame:CGRectMake(0, 64+40, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - (64+40)) tabArray:tabArray pageArray:pageArray numberOfTabAtOnePage:5];
     [tabScrollPageController addToSuperView];
+    tabScrollPageController.tabScrollView.tabMagin = 10;
     tabScrollPageController.tabScrollView.backgroundColor = [UIColor whiteColor];
     tabScrollPageController.tabScrollView.foregroundColor = [UIColor blackColor];
     tabScrollPageController.tabScrollView.highlightColor = [UIColor redColor];
