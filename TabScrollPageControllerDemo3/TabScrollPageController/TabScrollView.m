@@ -31,7 +31,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @interface TabScrollView ()
 
-@property (nonatomic, strong) UIButton *changePageButton;               //翻页按钮
+@property (nonatomic, strong) UIButton *changePageButton;                       //翻页按钮
+
+@property (nonatomic, strong) UIView *separatedUnderlineView;         //用于分割的下划线视图
+@property (nonatomic, strong) NSMutableArray *tabSeparatedLineViewArray;        //tab分割线视图数据
+
 @end
 
 @implementation TabScrollView
@@ -44,6 +48,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @synthesize highlightColor = _highlightColor;
 @synthesize font = _font;
 @synthesize pagingEnabled = _pagingEnabled;
+
+@synthesize separatedUnderlineView = _separatedUnderlineView;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -73,6 +79,15 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         _tabButtonArray  = [NSMutableArray array];
     }
     return _tabButtonArray;
+}
+
+//懒加载
+- (NSMutableArray *)tabSeparatedLineViewArray
+{
+    if (!_tabSeparatedLineViewArray) {
+        _tabSeparatedLineViewArray  = [NSMutableArray array];
+    }
+    return _tabSeparatedLineViewArray;
 }
 
 - (NSInteger)numberOfTabAtOnePage
@@ -124,7 +139,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
     _tabScrollViewDelegate = tabScrollViewDelegate;
     [self removeAllSubviews];
-    [self generateUI];
 }
 
 - (void)setForegroundColor:(UIColor *)foregroundColor
@@ -139,7 +153,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         }
         i ++;
     }
-    
 }
 
 - (void)setHighlightColor:(UIColor *)highlightColor
@@ -168,6 +181,38 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
     _tabMagin = tabMagin;
     [self generateUI];
+}
+
+- (void)setShowSeparatedUnderline:(BOOL)showSeparatedUnderline
+{
+    _showSeparatedUnderline = showSeparatedUnderline;
+    self.separatedUnderlineView.hidden = !_showSeparatedUnderline;
+}
+
+- (void)setShowTabSeparatedLineView:(BOOL)showTabSeparatedLineView
+{
+    _showTabSeparatedLineView = showTabSeparatedLineView;
+    for (UIView *tabLineV in self.tabSeparatedLineViewArray) {
+        tabLineV.hidden = !_showTabSeparatedLineView;
+    }
+}
+
+- (void)setSeparatedLineColor:(UIColor *)separatedLineColor
+{
+    _separatedLineColor = separatedLineColor;
+    self.separatedUnderlineView.backgroundColor = _separatedLineColor;
+    for (UIView *tabLineV in self.tabSeparatedLineViewArray) {
+        tabLineV.backgroundColor = _separatedLineColor;
+    }
+}
+
+- (void)setTabSeparatedLineHeight:(CGFloat)tabSeparatedLineHeight
+{
+    _tabSeparatedLineHeight = tabSeparatedLineHeight;
+    for (UIView *tabLineV in self.tabSeparatedLineViewArray) {
+        tabLineV.height = tabSeparatedLineHeight;
+        tabLineV.centerY = self.innerScrollView.height / 2;
+    }
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -214,6 +259,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 - (void)generateUI
 {
     self.tabButtonArray = [NSMutableArray array];
+    self.tabSeparatedLineViewArray = [NSMutableArray array];
     [self removeAllSubviews];
     
     CGRect rect = CGRectMake(0, 0, self.width, self.height);
@@ -222,7 +268,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     CGFloat height = self.innerScrollView.height;
     
-    CGFloat tabMargin = _tabMagin > 0 ? _tabMagin : D_tabMargin;
+    CGFloat tabMargin = ((_tabMagin > 0) ? _tabMagin : D_tabMargin);
     _tabMagin = tabMargin;
     
     NSInteger numberOfTabAtOnePage = self.numberOfTabAtOnePage;
@@ -246,6 +292,18 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         
         //按钮加入数组
         [self.tabButtonArray addObject:b];
+
+        //tab分割线
+        //非最后一个
+        if (i < (arrayForTabDataSource.count - 1)) {
+            UIView *tabLineV = [[UIView alloc] initWithFrame:CGRectMake((_tabMagin/2 + ((width + tabMargin)*(i+1))), (height - (self.tabSeparatedLineHeight * 2)), self.separatedLineHeight, self.tabSeparatedLineHeight)];
+            tabLineV.backgroundColor = self.separatedLineColor;
+            tabLineV.hidden = !self.showTabSeparatedLineView;
+            [self.innerScrollView addSubview:tabLineV];
+            
+            [self.tabSeparatedLineViewArray addObject:tabLineV];
+        }
+        
     }
     
     self.underLineV = [[UIView alloc] initWithFrame:CGRectMake(tabMargin , self.height - D_LineHeight, width, D_LineHeight)];
@@ -271,6 +329,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     self.innerScrollView.pagingEnabled = YES;
     self.innerScrollView.showsHorizontalScrollIndicator = NO;
     
+    //分割下划线
+    _separatedUnderlineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.height - self.separatedLineHeight, self.width, self.separatedLineHeight)];
+    [self addSubview:_separatedUnderlineView];
+    _separatedUnderlineView.backgroundColor = self.separatedLineColor;
+    _separatedUnderlineView.hidden = !self.showSeparatedUnderline;
+    
     //设置前景色
     [self setForegroundColor:self.foregroundColor];
     //设置高亮色
@@ -283,6 +347,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     //初始化基本参数
     self.backgroundColor = [UIColor whiteColor];
     self.currentSelectIndex = 0;
+    
+    _separatedLineHeight = 0.5;
+    _showSeparatedUnderline = YES;
+    _showTabSeparatedLineView = NO;
+    _separatedLineColor = UIColorFromRGB(0xd9d9d9);
+    _tabSeparatedLineHeight = 14;
     
     _animated = YES;
 }

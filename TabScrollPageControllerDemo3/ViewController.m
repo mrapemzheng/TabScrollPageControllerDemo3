@@ -60,6 +60,11 @@
     TabScrollPageController *tabScrollPageController = [[TabScrollPageController alloc] initWithTabFatherView:self.view tabScrollViewFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 40) pageFatherView:self.view pageScrollViewFrame:CGRectMake(0, 64+40, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - (64+40)) tabArray:tabArray pageArray:pageArray numberOfTabAtOnePage:5];
     [tabScrollPageController addToSuperView];
     tabScrollPageController.tabScrollView.tabMagin = 10;
+    tabScrollPageController.tabScrollView.showTabSeparatedLineView = YES;
+    tabScrollPageController.tabScrollView.showSeparatedUnderline = YES;
+    tabScrollPageController.tabScrollView.separatedLineColor = [UIColor grayColor];
+    tabScrollPageController.tabScrollView.separatedLineHeight = 0.5;
+    tabScrollPageController.tabScrollView.tabSeparatedLineHeight = 14;
     tabScrollPageController.tabScrollView.backgroundColor = [UIColor whiteColor];
     tabScrollPageController.tabScrollView.foregroundColor = [UIColor blackColor];
     tabScrollPageController.tabScrollView.highlightColor = [UIColor redColor];

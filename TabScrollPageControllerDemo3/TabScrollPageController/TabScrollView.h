@@ -29,8 +29,8 @@
 
 @interface TabScrollView : UIScrollView
 
-@property (nonatomic, strong) UIScrollView *innerScrollView;            //滚动视图
-@property (nonatomic, strong) UIView *underLineV;                       //下划线视图
+@property (nonatomic, strong) UIScrollView *innerScrollView;                    //滚动视图
+@property (nonatomic, strong) UIView *underLineV;                               //下划线视图
 
 @property (nonatomic, strong) UIColor *foregroundColor;                         //前景色
 @property (nonatomic, strong) UIColor *highlightColor;                          //高亮色
@@ -44,8 +44,13 @@
 @property (nonatomic, readonly, strong) NSArray *arrayForTabDataSource;         //数据源数组
 @property (nonatomic, assign) NSInteger currentSelectIndex;                     //当前被选中的下标 默认:0
 
-@property (nonatomic, strong) NSMutableArray *tabButtonArray;           //按钮数组
+@property (nonatomic, strong) NSMutableArray *tabButtonArray;                   //按钮数组
 
+@property (nonatomic, strong) UIColor *separatedLineColor;                      //分割线的颜色
+@property (nonatomic, assign) CGFloat separatedLineHeight;                      //分割线高度 default is 0.5
+@property (nonatomic, assign) BOOL showSeparatedUnderline;                      //是否显示分割下划线 default is YES
+@property (nonatomic, assign) BOOL showTabSeparatedLineView;                    //是否显示分割下划线 default is NO
+@property (nonatomic, assign) CGFloat tabSeparatedLineHeight;                   //分割线高度 default is 14
 /**
  *  选中某个下标
  *
