@@ -13,7 +13,7 @@
 @property (nonatomic, assign) UIView *tabFatherView;        //标签滚动视图的父视图
 @property (nonatomic, assign) UIView *pageFatherView;       //页滚动视图的父视图
 @property (nonatomic, assign) CGRect tabScrollViewFrame;    //标签滚动视图的frame
-@property (nonatomic, assign) CGRect pageScrollViewFrame;   //页滚动视图的frame
+
 
 @property (nonatomic, strong) NSArray *tabArray;            //标签数组
 @property (nonatomic, strong) NSArray *pageArray;           //数组

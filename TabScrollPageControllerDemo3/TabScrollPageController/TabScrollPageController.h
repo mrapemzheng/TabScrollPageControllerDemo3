@@ -29,6 +29,7 @@
 
 @property (nonatomic, strong) TabScrollView *tabScrollView;         //标签滚动视图
 @property (nonatomic, strong) PageScrollView *pageScrollView;       //页滚动视图
+@property (nonatomic, assign) CGRect pageScrollViewFrame;   //页滚动视图的frame
 @property (nonatomic, strong) id<TabScrollPageControllerDelegate> delegate;
 
 /**

@@ -20,7 +20,7 @@
 - (id)pageScrollView:(PageScrollView *)pageScrollView  pageViewAtIndex:(NSInteger)index;
 
 @optional
-//正在滚动   
+//正在滚动
 - (void)pageScrollViewDidScroll:(PageScrollView *)pageScrollView;
 
 //已经滚动到下标
@@ -39,6 +39,7 @@
 @property (nonatomic, assign, readonly) NSInteger currentIndex;       //当前下标
 @property (nonatomic, assign) id<PageScrollViewDelegate> pageScrollViewdelegate;    //委托
 @property (nonatomic, assign) BOOL warmAnimated;      //和谐动画 默认NO
+@property (nonatomic, assign) BOOL loadNearPage; //加载邻近的页 default is YES
 
 /**
  *  初始化

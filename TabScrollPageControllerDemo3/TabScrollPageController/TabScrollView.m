@@ -138,7 +138,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 - (void)setTabScrollViewDelegate:(id<TabScrollViewDelegate>)tabScrollViewDelegate
 {
     _tabScrollViewDelegate = tabScrollViewDelegate;
-    [self removeAllSubviews];
+    [self generateUI];
 }
 
 - (void)setForegroundColor:(UIColor *)foregroundColor
@@ -292,7 +292,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         
         //按钮加入数组
         [self.tabButtonArray addObject:b];
-
+        
         //tab分割线
         //非最后一个
         if (i < (arrayForTabDataSource.count - 1)) {
