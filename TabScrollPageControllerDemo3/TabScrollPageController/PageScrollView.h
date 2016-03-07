@@ -40,6 +40,7 @@
 @property (nonatomic, assign) id<PageScrollViewDelegate> pageScrollViewdelegate;    //委托
 @property (nonatomic, assign) BOOL warmAnimated;      //和谐动画 默认NO
 @property (nonatomic, assign) BOOL loadNearPage; //加载邻近的页 default is YES
+@property (nonatomic, assign) BOOL loadImmediately; //一触发跳转页面就立刻加载 default is NO
 
 /**
  *  初始化
@@ -62,5 +63,8 @@
  *  @param index 下标
  */
 - (void)scrollToIndex:(NSInteger)index;
+
+//重新加载所有页 (未测试)
+- (void)reloadAllPage;
 
 @end

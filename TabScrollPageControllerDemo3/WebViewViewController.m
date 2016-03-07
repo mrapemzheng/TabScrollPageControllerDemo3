@@ -18,7 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSURLRequest *urlrequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.kinggen.com.cn/"] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:30.0];
+    if(self.webUrlStr == nil) {
+        self.webUrlStr = @"http://www.kinggen.com.cn/";
+    }
+    
+    NSURLRequest *urlrequest = [NSURLRequest requestWithURL:[NSURL URLWithString:self.webUrlStr] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:30.0];
     [self.webView loadRequest:urlrequest];
 }
 

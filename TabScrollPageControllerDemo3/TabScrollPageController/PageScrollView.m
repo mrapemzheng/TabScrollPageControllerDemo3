@@ -23,6 +23,8 @@
     if (self = [super initWithFrame:frame]) {
         
         _loadNearPage = YES;
+        _loadImmediately = NO;
+        
         self.pageScrollViewdelegate = delegate;
         [self setup];
     }
@@ -93,11 +95,15 @@
             [self.pageScrollViewdelegate pageScrollView:self didScrollToIndex:_currentIndex];
         }
         
-        if (self.loadNearPage == YES) {
-            //根据下标加载视图,并加载周边视图
-            [self loadPageAndNearByByIndex:_currentIndex];
-        } else {
-            [self loadAndResetPageFrameByIndex:_currentIndex];
+        //非立刻加载页面
+        if(self.loadImmediately == NO) {
+            //是否加载邻近页面
+            if (self.loadNearPage == YES) {
+                //根据下标加载视图,并加载周边视图
+                [self loadPageAndNearByByIndex:_currentIndex];
+            } else {
+                [self loadAndResetPageFrameByIndex:_currentIndex];
+            }
         }
         
         //        //如果当前页还未加载视图则加载
@@ -138,12 +144,17 @@
     
     [self setContentOffset:CGPointMake(_currentIndex * self.width, 0) animated:YES];
     
-    if (self.loadNearPage == YES) {
-        //根据下标加载视图,并加载周边视图
-        [self loadPageAndNearByByIndex:_currentIndex];
-    } else {
-        [self loadAndResetPageFrameByIndex:_currentIndex];
+    //是否立刻加载
+    if (self.loadImmediately == YES) {
+        //是否加载周边页面
+        if (self.loadNearPage == YES) {
+            //根据下标加载视图,并加载周边视图
+            [self loadPageAndNearByByIndex:_currentIndex];
+        } else {
+            [self loadAndResetPageFrameByIndex:_currentIndex];
+        }
     }
+    
     
     //    //如果当前页还未加载视图则加载
     //    id obj = [self.pageViewDictionary objectForKey:[NSNumber numberWithInteger:_currentIndex]];
@@ -163,6 +174,37 @@
     //    [self addSubview:theView];
 }
 
+- (void)reloadAllPage
+{
+    //移除所有子视图
+    NSArray *allKeys = [self.pageViewDictionary allKeys];
+    [self.pageViewDictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        UIView *theView;
+        if([obj isKindOfClass:[UIViewController class]]) {
+            UIViewController *vc = (UIViewController *)obj;
+            theView = vc.view;
+        } else {
+            theView = (UIView *)obj;
+        }
+        
+        if (theView.superview != nil) {
+            [theView removeFromSuperview];
+        }
+        
+    }];
+    
+    [self.pageViewDictionary removeAllObjects];
+    
+    //重新加载子视图
+    for(NSInteger i = 0;i < allKeys.count;i ++) {
+        NSNumber *key = [allKeys objectAtIndex:i];
+        [self loadAndResetPageFrameByIndex:key.integerValue];
+    }
+    
+}
+
+#pragma mark - private methods
+
 //根据下标 加载并重新设置页面布局
 - (void)loadAndResetPageFrameByIndex:(NSInteger)index
 {
@@ -173,16 +215,17 @@
     if (obj == nil) {
         obj = [self.pageScrollViewdelegate pageScrollView:self pageViewAtIndex:index];
         [self.pageViewDictionary setObject:obj forKey:[NSNumber numberWithInteger:index]];
-        
-        if([obj isKindOfClass:[UIViewController class]]) {
-            UIViewController *vc = (UIViewController *)obj;
-            theView = vc.view;
-            [self addSubview:theView];
-        } else {
-            theView = (UIView *)obj;
-            [self addSubview:theView];
-        }
     }
+    
+    if([obj isKindOfClass:[UIViewController class]]) {
+        UIViewController *vc = (UIViewController *)obj;
+        theView = vc.view;
+        [self addSubview:theView];
+    } else {
+        theView = (UIView *)obj;
+        [self addSubview:theView];
+    }
+    
     theView.frame = CGRectMake(index * self.width, 0, self.width, self.height);
 }
 

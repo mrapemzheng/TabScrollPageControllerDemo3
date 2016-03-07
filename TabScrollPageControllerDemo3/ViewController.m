@@ -23,35 +23,44 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    CGRect rect = [UIScreen mainScreen].bounds;
+    
     //设置数据
     NSArray *tabArray = [NSArray arrayWithObjects:@"标签1", @"标签2", @"标签3", @"标签4", @"标签5", @"标签6", @"标签7", nil];
     NSMutableArray *pageArray = [NSMutableArray array];
     for (NSInteger i = 0; i < tabArray.count; i ++) {
         UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         if (i == 0) {
-            v.backgroundColor = [UIColor redColor];
-            [pageArray addObject:v];
+            WebViewViewController *webViewViewController2 = [[WebViewViewController alloc] initWithNibName:@"WebViewViewController" bundle:[NSBundle mainBundle]];
+            webViewViewController2.webUrlStr = @"https://github.com/AFNetworking/AFNetworking";
+            [pageArray addObject:webViewViewController2];
         } else if(i == 1) {
             
             WebViewViewController *webViewViewController = [[WebViewViewController alloc] initWithNibName:@"WebViewViewController" bundle:[NSBundle mainBundle]];
-            
-            
             [pageArray addObject:webViewViewController];
         } else if(i == 2) {
-            v.backgroundColor = [ UIColor blueColor];
-            [pageArray addObject:v];
+            WebViewViewController *webViewViewController2 = [[WebViewViewController alloc] initWithNibName:@"WebViewViewController" bundle:[NSBundle mainBundle]];
+            webViewViewController2.webUrlStr = @"https://www.baidu.com/";
+            [pageArray addObject:webViewViewController2];
         }else if(i == 3) {
-            v.backgroundColor = [ UIColor purpleColor];
-            [pageArray addObject:v];
+            WebViewViewController *webViewViewController3 = [[WebViewViewController alloc] initWithNibName:@"WebViewViewController" bundle:[NSBundle mainBundle]];
+            webViewViewController3.webUrlStr = @"https://www.tmall.com/";
+            [pageArray addObject:webViewViewController3];
+            
         }else if(i == 4) {
-            v.backgroundColor = [ UIColor blackColor];
-            [pageArray addObject:v];
+            WebViewViewController *webViewViewController3 = [[WebViewViewController alloc] initWithNibName:@"WebViewViewController" bundle:[NSBundle mainBundle]];
+            webViewViewController3.webUrlStr = @"http://www.jd.com/";
+            [pageArray addObject:webViewViewController3];
         }else if(i == 5) {
-            v.backgroundColor = [ UIColor yellowColor];
-            [pageArray addObject:v];
+            WebViewViewController *webViewViewController3 = [[WebViewViewController alloc] initWithNibName:@"WebViewViewController" bundle:[NSBundle mainBundle]];
+            webViewViewController3.webUrlStr = @"http://github.com/";
+            [pageArray addObject:webViewViewController3];
+            
         } else if(i == 6) {
-            v.backgroundColor = [ UIColor grayColor];
-            [pageArray addObject:v];
+            
+            WebViewViewController *webViewViewController3 = [[WebViewViewController alloc] initWithNibName:@"WebViewViewController" bundle:[NSBundle mainBundle]];
+            webViewViewController3.webUrlStr = @"http://www.dongting.com/";
+            [pageArray addObject:webViewViewController3];
         }
     }
     

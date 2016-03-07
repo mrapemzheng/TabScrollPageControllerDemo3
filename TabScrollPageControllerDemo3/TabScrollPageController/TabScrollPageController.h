@@ -15,8 +15,14 @@
 @protocol TabScrollPageControllerDelegate <NSObject>
 
 //选中一个
+/**
+ 注意: 请不要在这个方法里对未加载的页面进行操作,否则可能会无效
+ */
 @optional
 - (void)tabScrollPageController:(TabScrollPageController *)tabScrollPageController didSelectAtIndex:(NSInteger)index;
+
+//已经滚动到下标
+- (void)tabScrollPageController:(TabScrollPageController *)tabScrollPageController didScrollToIndex:(NSInteger)index;
 @end
 
 /**

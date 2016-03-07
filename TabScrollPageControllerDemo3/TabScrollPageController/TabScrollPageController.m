@@ -129,8 +129,12 @@
         [self.tabScrollView selectAtIndex:index animated:YES];
     }
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(tabScrollPageController:didSelectAtIndex:)]) {
-        [self.delegate tabScrollPageController:self didSelectAtIndex:index];
+    //    if (self.delegate && [self.delegate respondsToSelector:@selector(tabScrollPageController:didSelectAtIndex:)]) {
+    //        [self.delegate tabScrollPageController:self didSelectAtIndex:index];
+    //    }
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tabScrollPageController:didScrollToIndex:)]) {
+        [self.delegate tabScrollPageController:self didScrollToIndex:index];
     }
 }
 
